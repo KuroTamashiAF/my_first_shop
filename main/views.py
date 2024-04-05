@@ -5,11 +5,8 @@ from django.http import HttpResponse
 
 
 def index(request):
-    change = 1
-
-    aura = "BOOK"
-    return render(request, "main/index.html", {"cook": aura,
-                                               "change": change, })
+    siubvuib = 0
+    return render(request, "main/index.html", context={"siubvuib": siubvuib})
 
 
 def about(request):
