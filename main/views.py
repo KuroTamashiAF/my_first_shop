@@ -5,9 +5,17 @@ from django.http import HttpResponse
 
 
 def index(request):
-    siubvuib = 0
-    return render(request, "main/index.html", {"siubvuib": siubvuib})
+    context = {
+        "title": "Home - Главная",
+        "content": "Магазин мебели HOME",
+    }
+    return render(request, "main/index.html", context)
 
 
 def about(request):
-    return HttpResponse("about page")
+    context = {
+        "title": "Home - о нас",
+        "content": "Страница о магазине",
+        "text_on_page": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Sapiente, qui.",
+    }
+    return render(request, "main/about.html", context)

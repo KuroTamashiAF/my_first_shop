@@ -30,19 +30,15 @@
     "**/requirements{/**,*}.{txt,in}": "pip-requirements"
   },
 
-  "django.snippets.exclude": [
-    "cms",
-    "wagtail"
-],
+  "django.snippets.exclude": ["cms", "wagtail"],
 
-
-"[django-html]": {
-    "editor.defaultFormatter": "batisteo.vscode-django",
+  "[django-html]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
     "breadcrumbs.showClasses": true,
     "editor.quickSuggestions": {
-        "other": true,
-        "comments": true,
-        "strings": true
+      "other": true,
+      "comments": true,
+      "strings": true
     }
   }
 }
