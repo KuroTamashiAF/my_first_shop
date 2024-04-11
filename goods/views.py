@@ -1,11 +1,16 @@
 from django.shortcuts import render
 
+
 # Create your views here.
 def catalog(request):
     "контроллер каталога"
-    return render()
+
+    context = {}
+
+    return render(request, "goods/catalog.html", context)
 
 
 def product(request):
-    "контроллер продукта" 
-    return render()
+    "контроллер продукта"
+    context = {} 
+    return render(request, "goods/product.html", context)
