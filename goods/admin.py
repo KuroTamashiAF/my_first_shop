@@ -4,8 +4,21 @@ from goods.models import Categories, Products
 # Register your models here.
 
 #admin.site.register(Categories)
-admin.site.register(Products)
+#admin.site.register(Products)
 
+@admin.register(Categories)
 class CategoriesAdmin(admin.ModelAdmin):
+    "декоратор класса для админки"
+    prepopulated_fields = {'slug':('name',)}
+
+
+
+@admin.register(Products)
+class ProductsAdmin(admin.ModelAdmin):
+    "декоратор класса для админки"
+    prepopulated_fields = {'slug':('name',)}
+
+
+
     
 
