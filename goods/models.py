@@ -8,11 +8,13 @@ class Categories(models.Model):
     slug = models.SlugField(
         max_length=200, unique=True, blank=True, null=True, verbose_name="URL"
     )
-
     class Meta:
         db_table = "category"
         verbose_name = "Категорию"
         verbose_name_plural = "Категории"
+
+    def __str__(self):
+        return self.name
 
 
 class Products(models.Model):
@@ -34,8 +36,10 @@ class Products(models.Model):
     )
     quantity = models.PositiveIntegerField(default=0, verbose_name="Количество")
     category = models.ForeignKey(to=Categories, on_delete=models.CASCADE, verbose_name="Категория")
-
     class Meta:
         db_table = "product"
         verbose_name = "Продукт"
         verbose_name_plural: str = "Продукты"
+    
+    def __str__(self):
+        return self.name

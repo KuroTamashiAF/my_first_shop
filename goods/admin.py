@@ -3,5 +3,9 @@ from goods.models import Categories, Products
 
 # Register your models here.
 
-admin.site.register(Categories)
+#admin.site.register(Categories)
 admin.site.register(Products)
+
+class CategoriesAdmin(admin.ModelAdmin):
+    
+
