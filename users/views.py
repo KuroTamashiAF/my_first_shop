@@ -1,5 +1,5 @@
-from django.shortcuts import render
-from users.forms import UserLoginForm
+from django.shortcuts import render, redirect
+from users.forms import UserLoginForm, UserRegistrationForm
 from django.contrib import auth
 from django.http import HttpResponseRedirect
 from django.urls import reverse
@@ -26,8 +26,20 @@ def login(request):
 
 
 def registration(request):
+
+    if request.method == "POST":
+        form = UserRegistrationForm(data=request.POST)
+        if form.is_valid():
+            form.save()
+            user = form.instance
+            auth.login(request, user)
+            return HttpResponseRedirect(reverse("main:index"))
+    else:
+        form = UserRegistrationForm()
+
     context = {
         "title": "Магазин мебели Home - Регистрация",
+        "form":form,
     }
     return render(request, "users/registration.html", context)
 
@@ -40,7 +52,5 @@ def profile(request):
 
 
 def logout(request):
-    context = {
-        "title": "Магазин мебели Home - Выход",
-    }
-    return render(request, "", context)
+    auth.logout(request)
+    return redirect("main:index")
