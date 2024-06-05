@@ -25,8 +25,7 @@ SECRET_KEY = "django-insecure-lfv@7(%@zpit!p)1-m=&c^&5a!4!ui*tq(j%4%37zz0)5h4j3f
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = [
-]
+ALLOWED_HOSTS = []
 
 
 # Application definition
@@ -146,3 +145,5 @@ INTERNAL_IPS = [
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
 AUTH_USER_MODEL = "users.User"
+
+LOGIN_URL = "/user/login/"
