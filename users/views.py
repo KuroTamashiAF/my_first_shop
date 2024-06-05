@@ -17,7 +17,7 @@ def login(request):
                 auth.login(request, user)
                 messages.success(request, f"{username} успешно вошли в аккаунт")
 
-                if request.POST.get("next",None):
+                if request.POST.get("next", None):
                     return HttpResponseRedirect(request.POST.get("next"))
 
                 return HttpResponseRedirect(reverse("main:index"))
@@ -39,7 +39,10 @@ def registration(request):
             form.save()
             user = form.instance
             auth.login(request, user)
-            messages.success(request, f"{user.username} вы успешно зарегистрировались и вошли в аккаунт")
+            messages.success(
+                request,
+                f"{user.username} вы успешно зарегистрировались и вошли в аккаунт",
+            )
             return HttpResponseRedirect(reverse("main:index"))
     else:
         form = UserRegistrationForm()
@@ -50,20 +53,19 @@ def registration(request):
     }
     return render(request, "users/registration.html", context)
 
+
 @login_required
 def profile(request):
     if request.method == "POST":
         form = UserProFileForm(
-            data=request.POST,
-            instance=request.user, 
-            files=request.FILES
+            data=request.POST, instance=request.user, files=request.FILES
         )
         if form.is_valid():
             form.save()
             messages.success(request, "Профайл успешно изменен")
             return HttpResponseRedirect(reverse("user:profile"))
     else:
-        form = UserProFileForm(instance = request.user)
+        form = UserProFileForm(instance=request.user)
 
     context = {
         "title": "Магазин мебели Home - Кабинет",
@@ -71,7 +73,14 @@ def profile(request):
     }
     return render(request, "users/profile.html", context)
 
+
 @login_required
 def logout(request):
     auth.logout(request)
     return redirect("main:index")
+
+
+def users_cart(request):
+
+    context = {}
+    return render(request, "users/users_cart.html", context)
