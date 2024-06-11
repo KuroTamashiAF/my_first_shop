@@ -1,7 +1,7 @@
 {% extends "base.html" %}
 {% load static %}
 {% load carts_tag %}
-{% user_carts request as carts %}
+
 
 {% block content %}
     <div class="row">
@@ -14,9 +14,14 @@
                         {% include "carts/includes/included_cart.html" %}
                         <!-- Закончилась разметка корзины -->
                     </div>
-                    <a class="btn btn-dark" href="../orders/create_order.html">
-                        Оформить заказ
-                    </a>
+                    {% user_carts request as carts %}
+                    {% if  carts %}
+                        <a class="btn btn-dark" href="../orders/create_order.html">
+                            Оформить заказ
+                        </a>
+                    {% endif %}
+                        
+                  
                 </div>
             </div>
         </div>
