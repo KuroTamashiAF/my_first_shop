@@ -1,4 +1,4 @@
-from django.db import models
+from django.db import models # type: ignore
 
 
 class Categories(models.Model):
@@ -14,6 +14,8 @@ class Categories(models.Model):
         verbose_name = "Категорию"
         verbose_name_plural = "Категории"
         ordering = ("id",)
+
+    
 
     def __str__(self):
         return str(self.name)

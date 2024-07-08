@@ -1,4 +1,4 @@
-import imp
+# import imp
 from urllib import request
 from django.shortcuts import render, redirect
 from carts.templatetags.carts_tag import user_carts
