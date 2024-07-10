@@ -1,4 +1,5 @@
-from django.db import models # type: ignore
+from django.db import models
+from django.urls import reverse  # type: ignore
 
 
 class Categories(models.Model):
@@ -14,8 +15,6 @@ class Categories(models.Model):
         verbose_name = "Категорию"
         verbose_name_plural = "Категории"
         ordering = ("id",)
-
-    
 
     def __str__(self):
         return str(self.name)
@@ -59,3 +58,6 @@ class Products(models.Model):
             return round(self.price - (self.price * self.discount) / 100, 2)
 
         return self.price
+
+    def get_absolute_url(self):
+        return reverse("catalog:product", kwargs={"product_slug": self.slug})
