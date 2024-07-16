@@ -19,7 +19,7 @@ class Order(models.Model):
         to=User,
         on_delete=models.SET_DEFAULT,
         verbose_name="Пользователь",
-        default=None,
+        default=None,  # попробовать сюда добавить "Удален" что бы при удалении за место NoneType было это и не было бага
         blank=True,
         null=True,
     )
@@ -47,7 +47,7 @@ class Order(models.Model):
         verbose_name_plural = "Заказы"
 
     def __str__(self):
-        return f"Заказ № {self.pk} | Покупатель {self.user.first_name} {self.user.last_name}"
+        return f"Заказ № {self.pk} | Покупатель {self.user.first_name}-{self.user.last_name}"
 
 
 class OrderItem(models.Model):

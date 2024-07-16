@@ -15,11 +15,11 @@
                         <!-- Закончилась разметка корзины -->
                     </div>
                     {% user_carts request as carts %}
-                    {% if  carts %}
+                    {% comment %} {% if  carts %}
                         <a class="btn btn-dark" href="{% url "orders:create_order" %}">
                             Оформить заказ
                         </a>
-                    {% endif %}
+                    {% endif %} {% endcomment %}
                         
                   
                 </div>
