@@ -1,4 +1,5 @@
 from ast import mod
+from types import NoneType
 from django.db import models
 from users.models import User
 from goods.models import Products
@@ -45,8 +46,12 @@ class Order(models.Model):
         db_table = "order"
         verbose_name = "Заказ"
         verbose_name_plural = "Заказы"
+        ordering="id",
 
     def __str__(self):
+        if isinstance(self.user, NoneType):
+            return f"Заказ № {self.pk}| Покупатель Удален-Удален"
+
         return f"Заказ № {self.pk} | Покупатель {self.user.first_name}-{self.user.last_name}"
 
 
@@ -71,6 +76,8 @@ class OrderItem(models.Model):
         db_table = "order_item"
         verbose_name = "Проданный товар"
         verbose_name_plural = "Проданные товары"
+        ordering="id",
+        
 
     def products_price(self):
         return round(self.price * self.quantity, 2)

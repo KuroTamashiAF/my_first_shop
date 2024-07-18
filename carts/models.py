@@ -38,6 +38,7 @@ class Cart(models.Model):
         verbose_name = "Корзина"
         verbose_name_plural = "Корзина"
         db_table = "cart"
+        ordering = ("id",)
 
     def __str__(self):
         if self.user:
