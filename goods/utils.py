@@ -22,12 +22,20 @@ def q_search(querry):
     )
 
     result = result.annotate(
-        headline=SearchHeadline("name", querry, start_sel="<span style='background-color: yellow;'>",
-                                stop_sel="</span>"),
+        headline=SearchHeadline(
+            "name",
+            querry,
+            start_sel="<span style='background-color: yellow;'>",
+            stop_sel="</span>",
+        ),
     )
     result = result.annotate(
-        bodyline=SearchHeadline("description", querry, start_sel="<span style='background-color: yellow;'>",
-                                stop_sel="</span>"),
+        bodyline=SearchHeadline(
+            "description",
+            querry,
+            start_sel="<span style='background-color: yellow;'>",
+            stop_sel="</span>",
+        ),
     )
     return result
 

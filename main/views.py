@@ -1,24 +1,49 @@
+from typing import Any
 from django.shortcuts import render
-from django.http import HttpResponse
-from goods.models import Categories
+from django.views.generic import TemplateView
+
 
 # Create your views here.
 
 
-def index(request):
-    
-    context = {
-        "title": "Home - Главная",
-        "content": "Магазин мебели HOME",
-        
-    }
-    return render(request, "main/index.html", context)
+class IndexView(TemplateView):
+    template_name = "main/index.html"
+
+    def get_context_data(self, **kwargs: Any) -> dict[str, Any]:
+        context = super().get_context_data(**kwargs)
+        context["title"] = "Home - Главная"
+        context["content"] = "Магазин мебели HOME"
+
+        return context
 
 
-def about(request):
-    context = {
-        "title": "Home - о нас",
-        "content": "Страница о магазине",
-        "text_on_page": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Sapiente, qui.",
-    }
-    return render(request, "main/about.html", context)
+# def index(request):
+
+#     context = {
+#         "title": "Home - Главная",
+#         "content": "Магазин мебели HOME",
+
+#     }
+#     return render(request, "main/index.html", context)
+
+
+class AboutView(TemplateView):
+    template_name = "main/about.html"
+
+    def get_context_data(self, **kwargs: Any) -> dict[str, Any]:
+        context = super().get_context_data(**kwargs)
+        context["title"] = "Home - о нас"
+        context["content"] = "Страница о магазине"
+        context["text_on_page"] = (
+            "Lorem ipsum dolor sit amet consectetur adipisicing elit. Sapiente, qui."
+        )
+        return context
+
+
+# def about(request):
+#     context = {
+#         "title": "Home - о нас",
+#         "content": "Страница о магазине",
+#         "text_on_page": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Sapiente, qui.",
+#     }
+#     return render(request, "main/about.html", context)
