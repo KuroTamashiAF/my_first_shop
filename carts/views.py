@@ -1,6 +1,6 @@
-# import imp
-# from urllib import request
 from django.urls import reverse
+from django.views import View
+from carts.mixins import CartMixin
 from carts.templatetags.carts_tag import user_carts
 from goods.models import Products
 from carts.models import Cart
@@ -9,109 +9,171 @@ from django.template.loader import render_to_string
 from carts.utils import get_user_carts
 
 
-# Create your views here.
+class CartAddView(CartMixin, View):
 
+    def post(self, request):
+        product_id = request.POST.get("product_id")
+        product = Products.objects.get(id=product_id)
 
-def cart_add(request):
+        cart: Cart = self.get_cart(request, product=product)
 
-    product_id = request.POST.get("product_id")
-
-    product = Products.objects.get(id=product_id)
-
-    if request.user.is_authenticated:
-        carts = Cart.objects.filter(user=request.user, product=product)
-
-        if carts.exists():
-            cart = carts.first()
-            if cart:
-                cart.quantity += 1
-                cart.save()
-        else:
-            Cart.objects.create(user=request.user, product=product, quantity=1)
-
-    else:
-        carts = Cart.objects.filter(
-            session_key=request.session.session_key, product=product
-        )
-
-        if carts.exists():
-            cart = carts.first()
-            if cart:
-                cart.quantity += 1
-                cart.save()
+        if cart:
+            cart.quantity += 1
+            cart.save()
         else:
             Cart.objects.create(
-                session_key=request.session.session_key, product=product, quantity=1
+                user=request.user if request.user.is_authenticated else None,
+                session_key=(
+                    request.session.session_key
+                    if not request.user.is_authenticated
+                    else None
+                ),
+                product=product,
+                quantity=1,
             )
 
-    user_cart = get_user_carts(request)
-
-    cart_items_html = render_to_string(
-        "carts\includes\included_cart.html", {"carts": user_cart}, request=request
-    )
-
-    response_data = {
-        "message": "Товар добавлен в корзину",
-        "cart_items_html": cart_items_html,
-    }
-
-    return JsonResponse(response_data)
+        response_data = {
+            "message": "Товар добавлен в корзину",
+            "cart_items_html": self.render_cart(request),
+        }
+        return JsonResponse(response_data)
 
 
-def cart_change(request):
-    cart_id = request.POST.get("cart_id")
-    quantity = request.POST.get("quantity")
+# def cart_add(request):
 
-    cart = Cart.objects.get(id=cart_id)
-    cart.quantity = quantity
-    cart.save()
+#     product_id = request.POST.get("product_id")
 
-    user_cart = get_user_carts(request)
+#     product = Products.objects.get(id=product_id)
 
-    context = {
-        "carts": user_cart,
-    }
+#     if request.user.is_authenticated:
+#         carts = Cart.objects.filter(user=request.user, product=product)
 
-    # if referer page is create_order add key orders: True to context
-    referer = request.META.get("HTTP_REFERER")
-    if reverse("orders:create_order") in referer:
-        context["orders"] = True
+#         if carts.exists():
+#             cart = carts.first()
+#             if cart:
+#                 cart.quantity += 1
+#                 cart.save()
+#         else:
+#             Cart.objects.create(user=request.user, product=product, quantity=1)
 
-    carts_item_html = render_to_string(
-        "carts\includes\included_cart.html", context, request=request
-    )
-    response_data = {
-        "message": "Количество изменено",
-        "carts_item_html": carts_item_html,
-        "quantity": quantity,
-    }
-    return JsonResponse(response_data)
+#     else:
+#         carts = Cart.objects.filter(
+#             session_key=request.session.session_key, product=product
+#         )
+
+#         if carts.exists():
+#             cart = carts.first()
+#             if cart:
+#                 cart.quantity += 1
+#                 cart.save()
+#         else:
+#             Cart.objects.create(
+#                 session_key=request.session.session_key, product=product, quantity=1
+#             )
+
+#     user_cart = get_user_carts(request)
+
+#     cart_items_html = render_to_string(
+#         "carts\includes\included_cart.html", {"carts": user_cart}, request=request
+#     )
+
+#     response_data = {
+#         "message": "Товар добавлен в корзину",
+#         "cart_items_html": cart_items_html,
+#     }
+
+#     return JsonResponse(response_data)
 
 
-def cart_remove(request):
+class CartChangeView(CartMixin, View):
 
-    cart_id = request.POST.get("cart_id")
+    def post(self, request):
+        cart_id = request.POST.get("cart_id")
+        cart = self.get_cart(request, cart_id=cart_id)
+        cart.quantity = request.POST.get("quantity")
+        cart.save()
 
-    cart = Cart.objects.get(id=cart_id)
-    quantity = cart.quantity
-    cart.delete()
+        quantity = cart.quantity
 
-    user_cart = get_user_carts(request)
+        response_data = {
+            "message": "Количество изменено",
+            "quantity": quantity,
+            "cart_items_html": self.render_cart(request),
+        }
+        return JsonResponse(response_data)
 
-    context = {"carts": user_cart}
 
-    # if referer page is create_order add key orders: True to context
-    referer = request.META.get("HTTP_REFERER")
-    if reverse("orders:create_order") in referer:
-        context["orders"] = True
+# def cart_change(request):
+#     cart_id = request.POST.get("cart_id")
+#     quantity = request.POST.get("quantity")
 
-    cart_items_html = render_to_string(
-        "carts\includes\included_cart.html", context, request=request
-    )
+#     cart = Cart.objects.get(id=cart_id)
+#     cart.quantity = quantity
+#     cart.save()
 
-    response_data = {
-        "message": "Товар удален",
-        "cart_items_html": cart_items_html,
-        "quantity_deleted": quantity,
-    }
-    return JsonResponse(response_data)
+#     user_cart = get_user_carts(request)
+
+#     context = {
+#         "carts": user_cart,
+#     }
+
+#     # if referer page is create_order add key orders: True to context
+#     referer = request.META.get("HTTP_REFERER")
+#     if reverse("orders:create_order") in referer:
+#         context["orders"] = True
+
+#     carts_item_html = render_to_string(
+#         "carts\includes\included_cart.html", context, request=request
+#     )
+#     response_data = {
+#         "message": "Количество изменено",
+#         "carts_item_html": carts_item_html,
+#         "quantity": quantity,
+#     }
+#     return JsonResponse(response_data)
+
+
+class CartRemoveView(CartMixin, View):
+
+    def post(self, request):
+        cart_id = request.POST.get("cart_id")
+        cart = self.get_cart(request, cart_id=cart_id)
+        quantity = cart.quantity
+        cart.delete()
+
+        responce_data = {
+            "message": "Товар удален",
+            "quantity": quantity,
+            "cart_items_html": self.render_cart(request)
+        }
+
+        return JsonResponse(responce_data)
+
+
+# def cart_remove(request):
+
+#     cart_id = request.POST.get("cart_id")
+
+#     cart = Cart.objects.get(id=cart_id)
+#     quantity = cart.quantity
+#     cart.delete()
+
+#     user_cart = get_user_carts(request)
+
+#     context = {"carts": user_cart}
+
+#     # if referer page is create_order add key orders: True to context
+#     referer = request.META.get("HTTP_REFERER")
+#     if reverse("orders:create_order") in referer:
+#         context["orders"] = True
+
+#     cart_items_html = render_to_string(
+#         "carts\includes\included_cart.html", context, request=request
+#     )
+
+#     response_data = {
+#         "message": "Товар удален",
+#         "cart_items_html": cart_items_html,
+#         "quantity_deleted": quantity,
+#     }
+#     return JsonResponse(response_data)
