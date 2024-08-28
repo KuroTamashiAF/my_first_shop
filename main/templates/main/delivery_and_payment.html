@@ -1,0 +1,55 @@
+{% extends "base.html" %}
+{% load static %}
+
+
+
+{% block css %} 
+        <link rel="stylesheet" href="{% static "deps/css/my_footer_css.css" %}">
+{% endblock %} 
+
+
+{% block content %}
+    <form action="" method="get" class="bg" data-bs-theme="">
+        <div class="form-check text-white mx-3">
+            <input class ="form-check-input" type="radio" name="mail_or_courier" id="flexRadioDefault1" value="default">
+            <label class="form-check-label" for="flexRadioDefault1">
+                Почта
+            </label>
+        </div>
+        <div class="form-check text-white mx-3">
+            <input class ="form-check-input" type="radio" name="mail_or_courier" id="flexRadioDefault1" value="default">
+            <label class="form-check-label" for="flexRadioDefault1">
+                Курьерская доставка 
+            </label>
+        </div>
+
+
+
+
+        <button type="submit" class="btn btn-primary mx-3 mt-3">Применить</button>
+    </form>
+
+
+
+
+
+    
+        <h2 class="m-2"><strong> {{ content }} </strong></h2>
+        <p class="m-2">{{ text_on_page }}</p>
+    </div>
+{% endblock content %} 
+
+{% comment %} {% block modal_cart %}
+{% include "includes/cart_btn.html" %}
+{% endblock modal_cart %} {% endcomment %}
+
+
+{% block footer %}
+    <footer class="py-4 bg-dark">
+        <div class="container">
+                <p class="m-0 text-center text-white">
+                    Copyright &copy; Home Python Hub Studio 2023
+                </p>
+        </div>
+    </footer>
+{% endblock footer %}

@@ -47,3 +47,14 @@ class AboutView(TemplateView):
 #         "text_on_page": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Sapiente, qui.",
 #     }
 #     return render(request, "main/about.html", context)
+
+
+class DeliveryAndPayment(TemplateView):
+    template_name = "main/delivery_and_payment.html"
+
+
+    def get_context_data(self, **kwargs: Any) -> dict[str, Any]:
+        context = super().get_context_data(**kwargs)
+        context["text_on_page"] = "НОВАЯ СТРАНИЦА"
+        # context["content"] = "slksdljndslhbdhvdiyv"
+        return context
