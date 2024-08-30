@@ -1,4 +1,5 @@
 from typing import Any
+from urllib import request
 from django.shortcuts import render
 from django.views.generic import TemplateView
 
@@ -52,9 +53,14 @@ class AboutView(TemplateView):
 class DeliveryAndPayment(TemplateView):
     template_name = "main/delivery_and_payment.html"
 
-
     def get_context_data(self, **kwargs: Any) -> dict[str, Any]:
         context = super().get_context_data(**kwargs)
-        context["text_on_page"] = "НОВАЯ СТРАНИЦА"
-        # context["content"] = "slksdljndslhbdhvdiyv"
+        delivery = self.request.GET.get("mail_or_courier")
+        match delivery:
+            case "mail":
+                context["text_on_page"] = "Выбрана доставка почтой"
+            case "courier":
+                context["text_on_page"] = "Выбрана доставка курьером"
+            case None:
+                context["text_on_page"] = "Нихрена не выбрано"
         return context
