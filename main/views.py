@@ -56,11 +56,6 @@ class DeliveryAndPayment(TemplateView):
     def get_context_data(self, **kwargs: Any) -> dict[str, Any]:
         context = super().get_context_data(**kwargs)
         delivery = self.request.GET.get("mail_or_courier")
-        match delivery:
-            case "mail":
-                context["text_on_page"] = "Выбрана доставка почтой"
-            case "courier":
-                context["text_on_page"] = "Выбрана доставка курьером"
-            case None:
-                context["text_on_page"] = "Нихрена не выбрано"
+        context["delivery"] = delivery
+            
         return context

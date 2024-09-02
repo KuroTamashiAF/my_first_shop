@@ -12,24 +12,50 @@
     <div class="mt-5 pt-1 pb-1 bg-dark custom-shadow rounded w-25 d-flex d-flex justify-content-center ">
         <!-- Форма фильтра по выбору доставки-->
         <form action="{% url "main:delivery_and_payment" %}" method="get" class="bg" data-bs-theme="">
+            <!-- Доставка почтой-->
             <div class="form-check text-white mx-3">
                 <input class ="form-check-input" type="radio" name="mail_or_courier" id="flexRadioDefault1" value="mail">
                 <label class="form-check-label" for="flexRadioDefault1">
                     Почта
                 </label>
             </div>
+            <!-- Доставка курьером-->
             <div class="form-check text-white mx-3">
                 <input class ="form-check-input" type="radio" name="mail_or_courier" id="flexRadioDefault2" value="courier">
                 <label class="form-check-label" for="flexRadioDefault2">
                     Курьерская доставка 
                 </label>
             </div>
+
+
+
             <button type="submit" class="btn btn-primary mx-3 mt-3">Выбрать</button>
         </form>
     </div>
     <!-- Отображение верстки в зависимости от выбора пользователя-->
-     {% comment %} Добавить блок IF Прописать версткку {% endcomment %}
-    <div class="mt-5 pt-5 bg-white custom-shadow rounded">
+     
+     <div class="mt-5 pt-1 bg-white custom-shadow rounded">
+
+        {% if  delivery == "mail" %}
+            <p>Выбрана доставка почтой</p>
+                <!--Прописать верстку придоставке почтой -->
+        {% elif  delivery == "courier" %}
+            <p>Выбрана доставка курьером</p>
+                <!--Прописать верстку придоставке курьером-->
+        {% elif  delivery == None %}
+            <H1 class="text-center">Оплата</H1>
+            <p>Нихрена ну выбрано</p>
+                <!--Прописать верстку если ничего не выбрано  -->
+
+            
+
+
+
+
+        {% endif %}
+
+
+    
 
         <h2 class="m-2"><strong> {{ content }} </strong></h2>
         <p class="m-2">{{ text_on_page }}</p>
