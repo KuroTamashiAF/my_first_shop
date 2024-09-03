@@ -57,5 +57,7 @@ class DeliveryAndPayment(TemplateView):
         context = super().get_context_data(**kwargs)
         delivery = self.request.GET.get("mail_or_courier")
         context["delivery"] = delivery
+        context["title"] = "Home - Доставка и оплата"
+
             
         return context

@@ -1,0 +1,13 @@
+.coortunes{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+}
+
+.coortunes_size{
+    width: 64px;
+    height: 64px;
+}
+.greed_item{
+    color: black;
+
+}
