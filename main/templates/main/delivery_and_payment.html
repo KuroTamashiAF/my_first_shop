@@ -34,7 +34,6 @@
         </form>
     </div>
     <!-- Отображение верстки в зависимости от выбора пользователя-->
-     
      <div class="mt-5 pt-1 bg-white custom-shadow rounded">
 
         {% if  delivery == "mail" %}
@@ -43,50 +42,49 @@
         {% elif  delivery == "courier" %}
             <p>Выбрана доставка курьером</p>
                 <!--Прописать верстку придоставке курьером-->
+
         {% elif  delivery == None %}
-            <H1 class="text-center">Оплата</H1>
-            <h3 class="text-center">Вы можете произвести оплату 3-мя способами: </h3>
-
-
-            <div class="coortunes">
-                <div class="greed_item text-center">
-                    <img class="coortunes_size" src="{% static "/deps/images/payment_various/cash.png" %}" alt="">
-                    <p>Наличными курьеру</p>
-                </div>
-                <a href="#" class="text-decoration-none">
-                    <div class="greed_item text-center">
-                        <img class="coortunes_size" src="{% static "/deps/images/payment_various/online-payment.png" %}" alt="">
-                        <p>Картой онлайн</p>
-                    </div>
-                </a>
-                <div class="greed_item text-center">
-                    <img class="coortunes_size" src="{% static "/deps/images/payment_various/payment_coorier.png" %}" alt="">
-                    <p>Картой при получении</p>
-                </div>
-            </div>
-
-
-
-
-
-
-
-            <p>Нихрена ну выбрано</p>
-                <!--Прописать верстку если ничего не выбрано  -->
-
             
-
-
-
-
         {% endif %}
 
+        <H1 class="text-center">Оплата</H1>
+        <h3 class="text-center">Вы можете произвести оплату 3-мя способами: </h3>
 
-    
 
-        <h2 class="m-2"><strong> {{ content }} </strong></h2>
-        <p class="m-2">{{ text_on_page }}</p>
+        <div class="coortunes">
+            <div class="greed_item text-center">
+                <img class="coortunes_size" src="{% static "/deps/images/payment_various/cash.png" %}" alt="">
+                <p>Наличными курьеру</p>
+            </div>
+            <a href="#" class="text-decoration-none">
+                <div class="greed_item text-center">
+                    <img class="coortunes_size" src="{% static "/deps/images/payment_various/online-payment.png" %}" alt="">
+                    <p>Картой онлайн</p>
+                </div>
+            </a>
+            <div class="greed_item text-center">
+                <img class="coortunes_size" src="{% static "/deps/images/payment_various/payment_courier.png" %}" alt="">
+                <p>Картой при получении</p>
+            </div>
+        </div>
     </div>
+
+
+    <div class="position_warning_window">
+        <div class="mt-5  bg-white custom-shadow rounded size_window">
+            <img class="coortunes_size" src="{% static "/deps/images/payment_various/warning.png" %}" alt="">
+            
+            <p class="">Если вы делаете у нас <strong> первый заказ</strong>, и его сумма более <strong>10000р</strong>, 
+                либо <strong> не первый заказ</strong>, но его сумма более <strong>20000</strong>р, 
+                то необходимо внести <strong>предоплату 10% </strong>от стоимоти заказа. 
+            <br>
+            Заказ должен быть полностью оплачен заранее или в момент его передачи.</p>
+        </div>
+    </div>
+
+
+
+
 {% endblock content %} 
 
 {% comment %} {% block modal_cart %}
