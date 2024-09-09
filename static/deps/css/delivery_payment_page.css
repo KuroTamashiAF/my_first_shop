@@ -6,6 +6,12 @@
 
 }
 
+.delivery_conteiner{
+display: flex;
+gap: 10px;
+justify-content: space-between;
+}
+
 .coortunes_size{
     width: 64px;
     height: 64px;
@@ -31,4 +37,8 @@
 .position_warning_window{
     display: flex;
     justify-content: center;
+}
+
+.mask{
+    mask: url("../images/mask_.svg") center/cover no-repeat;
 }

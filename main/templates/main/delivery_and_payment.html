@@ -27,51 +27,70 @@
                     Курьерская доставка 
                 </label>
             </div>
-
-
-
             <button type="submit" class="btn btn-primary mx-3 mt-3">Выбрать</button>
         </form>
     </div>
     <!-- Отображение верстки в зависимости от выбора пользователя-->
-     <div class="mt-5 pt-1 bg-white custom-shadow rounded">
+     
+    {% if  delivery == "mail" %}
+            <!--Прописать верстку придоставке почтой -->
+            <div class="mt-5 pt-3 bg-white custom-shadow rounded delivery_conteiner">
+                <!--Почта России-->
+                <div><p>dm,hvdVG</p></div>
+                <div><p>DHJBdkghv</p></div>
+                <div><p>vDSVD</p></div>
+                <div><p>vDVDV</p></div>
+                <div><p>DvV</p></div>
+                <div><p>vVDVVdV</p></div>
+                <div><p>vdvDV</p></div>
+                <h1><a href="https://ecco.ru/buyers/delivery/">КАК ТУТ</a></h1>
+                
+                
+                
+                
+                
+                
+                
+                
+                
+            </div>
+            
+    {% elif  delivery == "courier" %}
+        <p>Выбрана доставка курьером</p>
+            <!--Прописать верстку придоставке курьером-->
 
-        {% if  delivery == "mail" %}
-            <p>Выбрана доставка почтой</p>
-                <!--Прописать верстку придоставке почтой -->
-        {% elif  delivery == "courier" %}
-            <p>Выбрана доставка курьером</p>
-                <!--Прописать верстку придоставке курьером-->
-
-        {% elif  delivery == None %}
+    {% elif  delivery == None %}
             
         {% endif %}
+        <div class="mt-5 pt-1 bg-white custom-shadow rounded">
+            <!-- Результат выбора пользователем-->
 
-        <H1 class="text-center">Оплата</H1>
-        <h3 class="text-center">Вы можете произвести оплату 3-мя способами: </h3>
+
+            <H1 class="text-center">Оплата</H1>
+            <h3 class="text-center">Вы можете произвести оплату 3-мя способами: </h3>
 
 
-        <div class="coortunes">
-            <div class="greed_item text-center">
-                <img class="coortunes_size" src="{% static "/deps/images/payment_various/cash.png" %}" alt="">
-                <p>Наличными курьеру</p>
-            </div>
-            <a href="#" class="text-decoration-none">
+            <div class="coortunes">
                 <div class="greed_item text-center">
-                    <img class="coortunes_size" src="{% static "/deps/images/payment_various/online-payment.png" %}" alt="">
-                    <p>Картой онлайн</p>
+                    <img class="coortunes_size" src="{% static "/deps/images/payment_various/cash.png" %}" alt="">
+                    <p>Наличными курьеру</p>
                 </div>
-            </a>
-            <div class="greed_item text-center">
-                <img class="coortunes_size" src="{% static "/deps/images/payment_various/payment_courier.png" %}" alt="">
-                <p>Картой при получении</p>
+                <a href="#" class="text-decoration-none">
+                    <div class="greed_item text-center">
+                        <img class="coortunes_size" src="{% static "/deps/images/payment_various/online-payment.png" %}" alt="">
+                        <p>Картой онлайн</p>
+                    </div>
+                </a>
+                <div class="greed_item text-center">
+                    <img class="coortunes_size" src="{% static "/deps/images/payment_various/payment_courier.png" %}" alt="">
+                    <p>Картой при получении</p>
+                </div>
             </div>
-        </div>
     </div>
 
 
     <div class="position_warning_window">
-        <div class="mt-5  bg-white custom-shadow rounded size_window">
+        <div class=" mt-5  bg-white custom-shadow rounded size_window ">
             <img class="coortunes_size" src="{% static "/deps/images/payment_various/warning.png" %}" alt="">
             
             <p class="">Если вы делаете у нас <strong> первый заказ</strong>, и его сумма более <strong>10000р</strong>, 
