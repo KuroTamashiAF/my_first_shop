@@ -7,9 +7,11 @@
 }
 
 .delivery_conteiner{
-display: flex;
-gap: 10px;
-justify-content: space-between;
+    display: flex;
+    gap: 10px;
+    justify-content: space-between;
+    margin: 50px 0px 0px 0px;
+    padding: 10px 10px 10px 10px;
 }
 
 .coortunes_size{
@@ -42,3 +44,15 @@ justify-content: space-between;
 .mask{
     mask: url("../images/mask_.svg") center/cover no-repeat;
 }
+
+.table_style{
+    table-layout: fixed;
+    width: 100%;
+    border-collapse: collapse;
+    border: 3px solid purple;
+    text-align: center;
+}
+th{
+    border-bottom: 1px solid purple;
+}
+
