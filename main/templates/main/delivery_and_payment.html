@@ -53,31 +53,63 @@
                         <td>Картой при получении / Наличными</td>
                         <td>с 10:00-19:00, кроме Сб, Вск</td>
                     </tr>
-                </table>
-
-
-
-
-
-
-
-
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
+                </table>  
             </div>
             
     {% elif  delivery == "courier" %}
-        <p>Выбрана доставка курьером</p>
             <!--Прописать верстку придоставке курьером-->
+            <div class="bg-white custom-shadow rounded delivery_conteiner">
+                <!--Почта России-->
+
+
+                <table class="delivery_info table_style">
+                    <tr class="">
+                        <th>Организация</th>
+                        <th>Стоимость</th>
+                        <th>Срок</th>
+                        <th>Способ оплаты</th>
+                        <th>Время доставки</th>
+                    </tr>
+                    <tr>
+                        <td>Курьером</td>
+                        <td>Заказ > 10000 ₽ БЕСПЛАТНО
+                            <br>
+                            Заказ < 10000 ₽
+                            от 350 до 900 ₽ в зависимости от региона</td>
+                        <td>2-3 недели</td>
+                        <td>Картой при получении / Наличными</td>
+                        <td>с 10:00-19:00, кроме Сб, Вск</td>
+                    </tr>
+                    <tr>
+                        <td>Пункты выдачи СДЭК</td>
+                        <td>Заказ > 10000 ₽
+                            БЕСПЛАТНО
+                            <br>
+                            Заказ < 10000 ₽
+                            950 ₽</td>
+                        <td>От 1 до 6 дней </td>
+                        <td>Наличными <br>
+                            Картой при получении <br>
+                            Картой на сайте</td>
+                        <td>По графику
+                            пункта выдачи</td>
+                    </tr>
+                    <tr>
+                        <td>Пункты выдачи Boxberry</td>
+                        <td>Заказ > 10000 ₽
+                            БЕСПЛАТНО
+                            
+                            Заказ < 10000 ₽
+                            от 350 до 900 ₽</td>
+                        <td>От 1 до 6 дней</td>
+                        <td>Наличными <br>
+                            Картой при получении <br>
+                            Картой на сайте</td></td>
+                        <td>По графику пункта выдачи</td>
+                    </tr>
+                </table>  
+            </div>
+
 
     {% elif  delivery == None %}
             
@@ -110,7 +142,7 @@
 
 
     <div class="position_warning_window">
-        <div class=" mt-5  bg-white custom-shadow rounded size_window ">
+        <div class=" mt-5 mb-4 bg-white custom-shadow rounded size_window ">
             <img class="coortunes_size" src="{% static "/deps/images/payment_various/warning.png" %}" alt="">
             
             <p class="">Если вы делаете у нас <strong> первый заказ</strong>, и его сумма более <strong>10000р</strong>, 
@@ -131,7 +163,7 @@
 {% endblock modal_cart %} {% endcomment %}
 
 
-{% block footer %}
+{% comment %} {% block footer %}
     <footer class="py-4 bg-dark">
         <div class="container">
                 <p class="m-0 text-center text-white">
@@ -139,4 +171,4 @@
                 </p>
         </div>
     </footer>
-{% endblock footer %}
+{% endblock footer %} {% endcomment %}

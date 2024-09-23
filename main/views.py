@@ -59,5 +59,15 @@ class DeliveryAndPayment(TemplateView):
         context["delivery"] = delivery
         context["title"] = "Home - Доставка и оплата"
 
-            
+        return context
+
+
+class SelfPickUpPage(TemplateView):
+    template_name = "main/self_pick_up.html"
+
+    def get_context_data(self, **kwargs: Any) -> dict[str, Any]:
+
+        context = super().get_context_data(**kwargs)
+        context["title"] = "Home - Самовывоз"
+
         return context
