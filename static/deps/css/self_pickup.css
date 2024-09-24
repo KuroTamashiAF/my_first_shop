@@ -1,0 +1,25 @@
+.schtme_directions_img{
+    border: 3px solid black;
+    border-radius: 50px;
+    margin: 20px 0px 40px 0px ;
+}
+
+
+.scheme_discriptions{
+    background-color: black;
+    border: 3px solid black;
+    border-radius: 50px;
+    padding: 0px 0px 20px 30px;
+
+
+
+
+}
+.scheme_text{
+    font-size: 24px;
+    color: white;
+}
+.warning_img{
+    width: 64px;
+    height: 64px;
+}
