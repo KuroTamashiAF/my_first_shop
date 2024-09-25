@@ -1,6 +1,15 @@
+/* @font-face {
+    font-family: "Ebbe";
+    src: url("/static/deps/fonts/Cakra_Normal.ttf");
+} */
+.scheme_text_header{
+    font-size: 50px;
+    font-family: 'Times New Roman', Times, serif;
+}
+
 .schtme_directions_img{
     border: 3px solid black;
-    border-radius: 50px;
+    border-radius: 10px;
     margin: 20px 0px 40px 0px ;
     display: block;
 }
@@ -9,12 +18,14 @@
 .scheme_discriptions{
     background-color: rgb(33,37,41);
     border: 3px solid black;
-    border-radius: 50px;
+    border-radius: 10px;
     padding: 10px 0px 10px 30px;
 }
 .scheme_text{
-    font-size: 24px;
+    font-size: 26px;
+    font-family: 'Times New Roman', Times, serif;
     color: white;
+
 }
 .warning_block{
     margin: 20px 0px 10px 0px;
@@ -23,7 +34,7 @@
     align-items: center;
     background-color: rgb(33,37,41);
     border: 3px solid black;
-    border-radius: 25px;
+    border-radius: 10px;
 }
 .warning_img{
     width: 64px;
@@ -35,4 +46,5 @@
     font-size: 20px;
     color: white;
     padding: 10px 10px 5px 20px;
+    font-family: 'Times New Roman', Times, serif;
 }

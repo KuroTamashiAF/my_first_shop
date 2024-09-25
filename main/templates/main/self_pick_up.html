@@ -4,7 +4,7 @@
 
 {% block css %} 
         <link rel="stylesheet" href="{% static "deps/css/my_footer_css.css" %}">
-        <link rel="stylesheet" href="{% static "deps/css/self_pickup.css" %}">
+        <link rel="stylesheet" href="{% static "/deps/css/self_pickup.css" %}">
 {% endblock %} 
 
 
@@ -13,13 +13,13 @@
 <div class="scheme">
         <h1 class="scheme_text_header">Схема проезда</h1>
         <img class="schtme_directions_img custom-shadow" src="{% static "deps/images/self_pickup/directions.jpg" %}" alt="">
-        <div class="scheme_discriptions">
+        <div class="scheme_discriptions custom-shadow">
                 <p class="scheme_text">Cамовывоз вы можете произвести по адресу <strong>г. Улетный, улица Рокеров 16/H.</strong></p>
                 <p class="scheme_text"><strong>Время:  Пн-Пт с 8:00-19:00.</strong></p>
                 <p class="scheme_text">Врата 1: Для мелких и средних товаров.</p>
                 <p class="scheme_text">Врата 2: Для крупных и особокрупных товаров.</p>
         </div>
-        <div class="warning_block">
+        <div class="warning_block custom-shadow">
                 <img src="{% static "/deps/images/payment_various/warning.png" %}" alt="КАРТИНКА С ! ЗНАКОМ" class="warning_img">
                 <div class="warning_text_container">
                         <p class="warning_text">ПРИ САМОВЫВОЗЕ НУЖНА С СОБОЙ В РАСПЕЧАТАННОМ ВИДЕ КВИТАНЦИЯ</p>
@@ -29,16 +29,6 @@
 
 
 </div>
-
-
-
-
-
-
-
-
-
-
 
 {% endblock content %}
 
