@@ -71,3 +71,13 @@ class SelfPickUpPage(TemplateView):
         context["title"] = "Home - Самовывоз"
 
         return context
+
+
+
+class ContactInformation(TemplateView):
+    template_name="main/contact_information.html"
+
+    def get_context_data(self, **kwargs: Any) -> dict[str, Any]:
+        context =  super().get_context_data(**kwargs)
+        context["Title"] = "Home - Контактная информация"
+        return context
