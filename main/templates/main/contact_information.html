@@ -1,14 +1,79 @@
 {% extends "base.html" %}
 {% load static %}
 
+{% block css %} 
 
+<link rel="stylesheet" href="{% static "deps/css/contact_information.css" %}">
+
+{% endblock %}
 
 
 {% block content %}
+<div class="grid_container">
+    <div class="grid_item_1">
+        <div class="subitem_2">
 
-<h1>СТраница контактов </h1>
-<img src="{% static "/deps/images/Contact_information/Page_contact_information.png" %}" alt="">
+        </div>
 
+        <div class="subitem_1">
+            <img class="img_greed_item_1" src="{% static "/deps/images/Contact_information/sale_depatment_img.png" %}" alt="">
+            <div class="container_text_grid_item">
+                <span class="text_grid_item">Отдел продаж</span>
+                <span class="text_grid_item">C 8:00 - 19:00</span>
+
+            </div>
+            <div class="container_number_fhone_greed_item">
+                <img src="{% static "/deps/images/Contact_information/call_number.png" %}" alt="" class="subitem_img">
+                <span class="text_grid_item">456 586-24-15</span>
+                <span class="text_grid_item">C 8:00 - 19:00</span>
+                <span class="text_grid_item">C 8:00 - 19:00</span>
+                <span class="text_grid_item">C 8:00 - 19:00</span>
+
+
+
+            </div>
+
+        </div>
+
+        <div class="subitem_2">
+
+        </div>
+
+
+
+
+    </div>
+    <div class="grid_item_2">
+        <img class="img_greed_item_2" src="{% static "/deps/images/payment_various/warning.png" %}" alt="">
+        <div class="text_grid_item_container">
+            <p>ТЕКСТ ГРИД ЭЛЕМЕНТА</p>
+        </div>
+    </div>
+    <div class="grid_item_2">
+        <img class="img_greed_item_2" src="{% static "/deps/images/payment_various/warning.png" %}" alt="">
+        <div class="text_grid_item_container">
+            <p>ТЕКСТ ГРИД ЭЛЕМЕНТА</p>
+        </div>
+    </div>
+    <div class="grid_item_2">
+        <img class="img_greed_item_2" src="{% static "/deps/images/payment_various/warning.png" %}" alt="">
+        <div class="text_grid_item_container">
+            <p>ТЕКСТ ГРИД ЭЛЕМЕНТА</p>
+        </div>
+    </div>
+    
+
+
+
+
+
+
+
+
+
+
+
+</div>
 
 
 
