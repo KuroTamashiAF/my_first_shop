@@ -73,4 +73,23 @@
     width: 64px;
     height: 64px;
     margin: 5px 0px  5px 0px;
+    
+}
+
+.form_feedback{
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    align-items: center;
+}
+.form_input{
+    margin: 10px 0px 10px 0px;
+    border: 1px solid black;
+    border-radius: 10px;
+    width:90% ;
+  
+}
+.form_btn{
+    border: 1px solid black;
+    border-radius: 10px;
 }

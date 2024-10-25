@@ -73,14 +73,6 @@
                     <span class="text_grid_item">880-64-32</span>
                 </div> {% endcomment %}
             </div>
-    
-
-
-
-
-
-
-
         </div>
     </div>
 
@@ -109,39 +101,33 @@
                     <span class="text_grid_item">880-64-32</span>
                 </div> {% endcomment %}
             </div>
-    
-
-
-
-
-
-
-
         </div>
     </div>
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
     <div class="grid_item_2">
-        <img class="img_greed_item_2" src="{% static "/deps/images/payment_various/warning.png" %}" alt="">
+        <img class="img_greed_item_2" src="{% static "/deps/images/Contact_information/callback.png" %}" alt="">
         <div class="text_grid_item_container">
-            <p>ТЕКСТ ГРИД ЭЛЕМЕНТА</p>
+            <span class="text_grid_item">Заказать обратный звонок </span>
+                <div>
+
+                    <form action="{% url "main:contacts" %}" method="POST">
+                        {% csrf_token %}
+                        {{form}}
+
+
+                        <button type="submit" >Отправить </button>
+                    </form>
+                </div>
+            
+                {% comment %} <form action='{% url "main:сontact_information" %}' class="form_feedback" method="POST">
+                    {% csrf_token %}
+                    <label for="name_input"></label>
+                    <input type="text" class="form_input" placeholder=" Введите Имя" name="name" id="name_input" required>
+                    {% comment %} <input type="text" class="form_input" placeholder=" Введите телефон" name="phone_number_input" required>                    <div class="button_container">
+                        <button type="submit" class="form_btn">Отправить</button>
+                    </div>
+                    
+                </form> {% endcomment %}
         </div>
     </div>
     
