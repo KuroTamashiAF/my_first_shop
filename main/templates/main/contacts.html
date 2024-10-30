@@ -110,7 +110,7 @@
             <span class="text_grid_item">Заказать обратный звонок </span>
             <div>
             
-                <form action='{% url "main:contacts" %}' class="form_feedback" method="POST">
+                <form action='{% url "main:contacts" %}' class="form_feedback" method="POST" id="create_feedback_call">
                     {% csrf_token %}
                     {% comment %} <label for="name_input">Name:</label> {% endcomment %}
                     <input type="text" class="form_input" placeholder=" Введите Имя" name="name" id="name_input" required>

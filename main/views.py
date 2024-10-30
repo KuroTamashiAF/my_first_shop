@@ -91,3 +91,8 @@ class Contacts(CreateView):
         form.save()
         return super().form_valid(form)
     
+    def form_invalid(self, form):
+        response = super().form_invalid(form)
+        return response
+    
+    
