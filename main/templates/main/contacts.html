@@ -108,43 +108,23 @@
         <img class="img_greed_item_2" src="{% static "/deps/images/Contact_information/callback.png" %}" alt="">
         <div class="text_grid_item_container">
             <span class="text_grid_item">Заказать обратный звонок </span>
-                <div>
-
-                    <form action="{% url "main:contacts" %}" method="POST">
-                        {% csrf_token %}
-                        {{form}}
-
-
-                        <button type="submit" >Отправить </button>
-                    </form>
-                </div>
+            <div>
             
-                {% comment %} <form action='{% url "main:сontact_information" %}' class="form_feedback" method="POST">
+                <form action='{% url "main:contacts" %}' class="form_feedback" method="POST">
                     {% csrf_token %}
-                    <label for="name_input"></label>
+                    {% comment %} <label for="name_input">Name:</label> {% endcomment %}
                     <input type="text" class="form_input" placeholder=" Введите Имя" name="name" id="name_input" required>
-                    {% comment %} <input type="text" class="form_input" placeholder=" Введите телефон" name="phone_number_input" required>                    <div class="button_container">
+                    {% comment %} <label for="phone_number_input">Phone number:</label> {% endcomment %}
+                    <input type="text" class="form_input" placeholder=" Введите телефон" name="phone_number" id="phone_number_input" required>                    
+                    <div class="button_container">
                         <button type="submit" class="form_btn">Отправить</button>
                     </div>
                     
-                </form> {% endcomment %}
+                </form>
         </div>
     </div>
     
-
-
-
-
-
-
-
-
-
-
-
 </div>
-
-
 
 
 {% endblock content %}

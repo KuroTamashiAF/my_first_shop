@@ -225,3 +225,12 @@ $('#create_order_form').on('submit', function (event) {
   });
 });
 
+
+
+// $(document).ready(function () {
+
+//   $("#phone_number_input").mask("+7 (999) 999-9999");
+
+  
+// });
+

@@ -75,41 +75,19 @@ class SelfPickUpPage(TemplateView):
         return context
 
 
-def contacts(request):
-    if request.method == "POST":
-        form = FeedBackForm(request.POST)
+class Contacts(CreateView):
+    template_name = "main/contacts.html"
+    form_class = FeedBackForm
+    success_url = reverse_lazy("main:about")
 
-        if form.is_valid():
+    def get_context_data(self, **kwargs):
 
-            name = request.POST.get("name")
-            phone = request.POST.get("phone_number")
-
-            print(name)
-            print(phone)
-
-            # return reverse_lazy("main:contacts")
-    else:
-        form = FeedBackForm()
-
-    return render(request, "main/contacts.html", {"form": form})
+        context = super().get_context_data(**kwargs)
+        context["title"] = "Home - Контакты"
+        return context
 
 
-# class ContactInformation(CreateView):
-#     template_name = "main/contact_information.html"
-#     form_class = FeedBackForm
-#     success_url = reverse_lazy("main:index")
-#     model = FeedBackCall
-
-
-#     def get_context_data(self, **kwargs: Any) -> dict[str, Any]:
-#         context = super().get_context_data(**kwargs)
-#         context["title"] = "Home - Контактная информация"
-#         return context
-
-#     def form_valid(self, form):
-#         name = self.request.POST.get("name")
-
-
-#         print(name)
-#         print("TRUE")
-#         return reverse_lazy(self.success_url)
+    def form_valid(self, form):
+        form.save()
+        return super().form_valid(form)
+    
