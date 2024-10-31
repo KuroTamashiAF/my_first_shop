@@ -1,9 +1,8 @@
-from django.shortcuts import render
+
 from django.views.generic import TemplateView, CreateView
 from main.forms import FeedBackForm
-from django.urls import reverse, reverse_lazy
-from django.http import HttpResponseRedirect
-from main.forms import FeedBackForm
+from django.urls import reverse_lazy
+from django.contrib import messages
 
 
 # Create your views here.
@@ -78,7 +77,7 @@ class SelfPickUpPage(TemplateView):
 class Contacts(CreateView):
     template_name = "main/contacts.html"
     form_class = FeedBackForm
-    success_url = reverse_lazy("main:about")
+    success_url = reverse_lazy("main:index")
 
     def get_context_data(self, **kwargs):
 
@@ -89,10 +88,5 @@ class Contacts(CreateView):
 
     def form_valid(self, form):
         form.save()
+        messages.success(self.request, "Обратный звонок заказан")
         return super().form_valid(form)
-    
-    def form_invalid(self, form):
-        response = super().form_invalid(form)
-        return response
-    
-    
