@@ -1,0 +1,11 @@
+.short_discription {
+    /* Стилизация заголовка о компании  */
+}
+
+.fakts_block_greed {
+    /* грид контейнер для карточек */
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+
+}

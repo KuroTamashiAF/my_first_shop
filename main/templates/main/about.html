@@ -5,18 +5,95 @@
 
 {% block css %} 
         <link rel="stylesheet" href="{% static "deps/css/my_footer_css.css" %}">
+        <link rel="stylesheet" href="{% static "deps/css/about.css" %}">
 {% endblock %} 
 
 
 {% block content %}
     <div class="mt-5 pt-5 bg-white custom-shadow rounded">
-        <h2 class="m-2"><strong> {{ content }} </strong></h2>
-        <p class="m-2">{{ text_on_page }}</p>
+    <!--Начало-->
+        <h3 class="short_discription">Краткое опписпние о компании на несколько строк </h3>
+
+        <div class="fakts_block_greed">
+
+            <div class="fakt_card_greed_item">
+                <h2 class="header_greed_item">Заголовок факта</h2>
+                <div class="greed_item_discription">
+                    <p class="greed_item_text">Описание факта </p>
+                </div>
+            </div>
+
+            <div class="fakt_card_greed_item">
+                <h2 class="header_greed_item">Заголовок факта</h2>
+                <div class="greed_item_discription">
+                    <p class="greed_item_text">Описание факта </p>
+                </div>
+            </div>
+            
+
+            <div class="fakt_card_greed_item">
+                <h2 class="header_greed_item">Заголовок факта</h2>
+                <div class="greed_item_discription">
+                    <p class="greed_item_text">Описание факта </p>
+                </div>
+            </div>
+
+            <div class="fakt_card_greed_item">
+                <h2 class="header_greed_item">Заголовок факта</h2>
+                <div class="greed_item_discription">
+                    <p class="greed_item_text">Описание факта </p>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="history_block">
+            <h1 class="history_block_header">История</h1>
+            <div class="history_card_greed_item">
+                <h2 class="year">год</h2>
+                <div class="year_discription">
+                    <p class="year_text">Описание года</p>
+                </div>
+            </div>
+            <div class="history_card_greed_item">
+                <h2 class="year">год</h2>
+                <div class="year_discription">
+                    <p class="year_text">Описание года</p>
+                </div>
+            </div>
+            <div class="history_card_greed_item">
+                <h2 class="year">год</h2>
+                <div class="year_discription">
+                    <p class="year_text">Описание года</p>
+                </div>
+            </div>
+            <div class="history_card_greed_item">
+                <h2 class="year">год</h2>
+                <div class="year_discription">
+                    <p class="year_text">Описание года</p>
+                </div>
+            </div>
+            <div class="history_card_greed_item">
+                <h2 class="year">год</h2>
+                <div class="year_discription">
+                    <p class="year_text">Описание года</p>
+                </div>
+            </div>
+            <div class="history_card_greed_item">
+                <h2 class="year">год</h2>
+                <div class="year_discription">
+                    <p class="year_text">Описание года</p>
+                </div>
+            </div>
+        </div>
+        <!--Конец-->
     </div>
+
+
 {% endblock content %} 
 
 {% block modal_cart %}
-{% include "includes/cart_btn.html" %}
+{% comment %} {% include "includes/cart_btn.html" %} {% endcomment %}
 {% endblock modal_cart %}
 
 
@@ -24,7 +101,7 @@
     <footer class="py-4 bg-dark">
         <div class="container">
                 <p class="m-0 text-center text-white">
-                    Copyright &copy; Home Python Hub Studio 2023
+                    Магазин мебели Home 2024
                 </p>
         </div>
     </footer>

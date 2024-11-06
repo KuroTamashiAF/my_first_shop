@@ -35,10 +35,7 @@ class AboutView(TemplateView):
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         context["title"] = "Home - о нас"
-        context["content"] = "Страница о магазине"
-        context["text_on_page"] = (
-            "Lorem ipsum dolor sit amet consectetur adipisicing elit. Sapiente, qui."
-        )
+
         return context
 
 
