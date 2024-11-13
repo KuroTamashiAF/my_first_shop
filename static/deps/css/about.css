@@ -1,5 +1,10 @@
+.header_page{
+    font-family: "EAZZY";
+    font-size: 5em;
+}
 .short_discription {
     /* Стилизация заголовка о компании  */
+    font-family: "EAZZY";
     
 }
 .shop_aim{
@@ -179,4 +184,8 @@
 .year_text{
     /*Стилизация текста описания карточки*/
 
+}
+@font-face {
+    font-family: "EAZZY";
+    src: url(/static/deps/fonts/FEMussyPussy-Regular.ttf);
 }
