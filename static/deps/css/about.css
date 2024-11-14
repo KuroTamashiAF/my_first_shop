@@ -1,3 +1,11 @@
+.padding{
+    padding: 0px 0px 0px 20px;
+}
+
+
+
+
+
 .header_page{
     font-family: "EAZZY";
     font-size: 5em;
@@ -9,6 +17,7 @@
 }
 .shop_aim{
     margin: 30px 0px 0px 0px;
+    font-family: "Yasura";
 }
 
 .fakts_block_greed {
@@ -188,4 +197,12 @@
 @font-face {
     font-family: "EAZZY";
     src: url(/static/deps/fonts/FEMussyPussy-Regular.ttf);
+}
+@font-face {
+    font-family:"SAMDAN" ;
+    src: url(/static/deps/fonts/samdan.ttf);
+}
+@font-face {
+    font-family: "Yasura";
+    src: url(/static/deps/fonts/z7qpo.ttf);
 }
