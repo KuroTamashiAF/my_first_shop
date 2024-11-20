@@ -49,7 +49,7 @@
     border-radius: 20px;
     -webkit-box-shadow: -1px 0px 8px 12px rgba(24, 141, 231, 0.2);
     -moz-box-shadow: -1px 0px 8px 12px rgba(24, 141, 231, 0.2);
-    box-shadow: -1px 0px 8px 12px rgba(24, 141, 231, 0.2);
+    box-shadow: -1px 0px 8px 12px rgb(61,76,118);
 
 
 
@@ -124,10 +124,11 @@
 
 .header_greed_item{
     /*Стилизация заголовка карточки*/
-    
+    font-family: "EAZZY";
 }
 .greed_item_discription{
     /*стилизация контейнера описания факта-текста*/
+    font-family: sans-serif;
 }
 .greed_item_text{
     /*Стилизация текста описания*/
