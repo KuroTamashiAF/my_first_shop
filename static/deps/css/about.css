@@ -141,6 +141,7 @@
 }
 .history_block_header{
     /*стилизация заголовка исторического блока*/
+    font-family: "EAZZY";
 }
 .history_block_grid_container{
     /*Контейнер для карточек исторического блока*/
@@ -151,10 +152,6 @@
     grid-template: repeat(2, 1fr) / repeat(3, 1fr);
     gap: 20px;
     
-
-
-
-
 }
 .history_card_greed_item{
     /*Карточка исторического блока*/
@@ -162,30 +159,41 @@
     border-radius: 20px;
     -webkit-box-shadow: -1px 0px 8px 12px rgba(24, 141, 231, 0.2);
     -moz-box-shadow: -1px 0px 8px 12px rgba(24, 141, 231, 0.2);
-    box-shadow: -1px 0px 8px 12px rgba(24, 141, 231, 0.2);
-
-
-
-
+    box-shadow: -1px 0px 8px 12px rgb(61,76,118);;
+    /* height: 300px; */
 
 }
 .history_card_greed_item_2{
     /*Карточка исторического блока большая*/
+    /* padding: 0px 0px 0px 60px; */
+    position: relative;
+
     border: 2px solid black;
     border-radius: 20px;
+    height: 300px;
+    
 
 
     -webkit-box-shadow: -1px 0px 8px 12px rgba(24, 141, 231, 0.2);
     -moz-box-shadow: -1px 0px 8px 12px rgba(24, 141, 231, 0.2);
-    box-shadow: -1px 0px 8px 12px rgba(24, 141, 231, 0.2);
-
-
+    box-shadow: -1px 0px 8px 12px rgb(61,76,118);;
+    background: url(/static/deps/images/about/result.jpeg) no-repeat center center/cover;
 
     grid-column: 2/4;
 }
 .year{
     /*Стилизация года карточки */
+    font-family: "EAZZY";
+    
 
+}
+.result_cart{
+    font-family: "EAZZY";
+    color: rgb(94, 4, 97);
+    position: absolute;
+    top: 20px;
+    left: 57px;
+    
 }
 .year_discription{
     /* Контейнер для описания года карточки*/
