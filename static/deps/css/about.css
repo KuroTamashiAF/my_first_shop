@@ -155,14 +155,59 @@
 }
 .history_card_greed_item{
     /*Карточка исторического блока*/
+    /* border: 2px solid black;
+    border-radius: 20px;
+    -webkit-box-shadow: -1px 0px 8px 12px rgba(24, 141, 231, 0.2);
+    -moz-box-shadow: -1px 0px 8px 12px rgba(24, 141, 231, 0.2);
+    box-shadow: -1px 0px 8px 12px rgb(61,76,118); */
+    /* height: 300px; */
+}
+.flip_card{
+    width: 300px;
+    height: 300px;
+    perspective: 1000px;
+}
+.flip_card_inner{
+    position: relative;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    transition: transform 1s;
+    transform-style: preserve-3d;
+}
+.flip_card:hover .flip_card_inner{
+    transform: rotateY(180deg);
+}
+.flip_card_front, .flip_card_rear{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    /* -webkit-backface-visibility: hidden; */
+    backface-visibility: hidden;
     border: 2px solid black;
     border-radius: 20px;
     -webkit-box-shadow: -1px 0px 8px 12px rgba(24, 141, 231, 0.2);
     -moz-box-shadow: -1px 0px 8px 12px rgba(24, 141, 231, 0.2);
-    box-shadow: -1px 0px 8px 12px rgb(61,76,118);;
-    /* height: 300px; */
-
+    box-shadow: -1px 0px 8px 12px rgb(61,76,118);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+   
 }
+.flip_card_front{
+    background-color: #bbb;
+    color: black;
+    background: url("/static/deps/images/about/front_side.jpg") no-repeat center center/cover;
+}
+.flip_card_rear{
+    background-color: dodgerblue;
+    color: white;
+    transform: rotateY(180deg);
+    border-radius: 30px;
+    border: 3px solid black;
+}
+
+
 .history_card_greed_item_2{
     /*Карточка исторического блока большая*/
     /* padding: 0px 0px 0px 60px; */
@@ -184,8 +229,15 @@
 .year{
     /*Стилизация года карточки */
     font-family: "EAZZY";
+    font-size: 70px;
     
 
+}
+/* .year_head{
+    font-family: "EAZZY";
+    color: black;
+    font-size: 40px;
+     */
 }
 .result_cart{
     font-family: "EAZZY";
@@ -202,6 +254,18 @@
 .year_text{
     /*Стилизация текста описания карточки*/
 
+}
+.back_1{
+    background: url("/static/deps/images/about/back_1.jpeg") no-repeat center center/cover;
+    font-family: "EAZZY";
+    color: black;
+    font-size: 40px;
+
+}
+.back_2{
+    background: url("/static/deps/images/about/qucly_grow_up.jpeg") no-repeat center center/cover;
+    color:azure;
+    font-size: 20px;
 }
 @font-face {
     font-family: "EAZZY";
