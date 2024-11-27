@@ -11,7 +11,9 @@ https://docs.djangoproject.com/en/5.0/ref/settings/
 """
 
 from pathlib import Path
+import os
 
+from django.conf.global_settings import STATIC_ROOT
 
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -22,15 +24,20 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/5.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = "django-insecure-lfv@7(%@zpit!p)1-m=&c^&5a!4!ui*tq(j%4%37zz0)5h4j3f"
+SECRET_KEY = os.getenv(
+    "SECRET_KEY"
+)  # "django-insecure-lfv@7(%@zpit!p)1-m=&c^&5a!4!ui*tq(j%4%37zz0)5h4j3f"
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
+SESSION_COOKIE_SECURE = True
+CSRF_COOKIE_SECURE = True
 
 ALLOWED_HOSTS = [
-    "127.0.0.1",
-    "192.168.25.69",
-    "192.168.224.72",
+    # "127.0.0.1",
+    # "192.168.25.69",
+    # "192.168.224.72",
+    "NvrSuRRner.pythonanywhere.com",
 ]
 
 
@@ -43,14 +50,13 @@ INSTALLED_APPS = [
     "django.contrib.sessions",
     "django.contrib.messages",
     "django.contrib.staticfiles",
-    "django.contrib.postgres",
+    # "django.contrib.postgres",
     "debug_toolbar",
     "main",
     "goods",
     "users",
     "carts",
     "orders",
-    
 ]
 
 MIDDLEWARE = [
@@ -89,13 +95,24 @@ WSGI_APPLICATION = "app.wsgi.application"
 # https://docs.djangoproject.com/en/5.0/ref/settings/#databases
 
 DATABASES = {
+    # "default": {
+    #     "ENGINE": "django.db.backends.postgresql",
+    #     "NAME": "home",
+    #     "USER": "home",
+    #     "PASSWORD": "home",
+    #     "HOST": "localhost",
+    #     "PORT": "5432",
+    # }
     "default": {
-        "ENGINE": "django.db.backends.postgresql",
-        "NAME": "home",
-        "USER": "home",
-        "PASSWORD": "home",
-        "HOST": "localhost",
-        "PORT": "5432",
+        "ENGINE": "django.db.backends.mysql",
+        "NAME": "NvrSuRRner$default",
+        "USER": "NvrSuRRner",
+        "PASSWORD": os.getenv("MYSQL_PASSWORD"),
+        "HOST": "NvrSuRRner.mysql.pythonanywhere-services.com",
+        "OPTIONS": {
+            "init_command": "SET NAMES 'utf8mb4';SET sql_mode='STRICT_TRANS_TABLES'",
+            "charset": "utf8mb4",
+        },
     }
 }
 
@@ -135,6 +152,8 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/5.0/howto/static-files/
 
 STATIC_URL = "static/"
+STATIC_ROOT = BASE_DIR / "static/deps/"
+
 STATICFILES_DIRS = [
     BASE_DIR / "static",
 ]
