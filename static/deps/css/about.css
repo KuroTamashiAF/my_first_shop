@@ -1,11 +1,6 @@
 .padding{
     padding: 0px 0px 0px 20px;
 }
-
-
-
-
-
 .header_page{
     font-family: "EAZZY";
     font-size: 5em;
@@ -233,12 +228,7 @@
     
 
 }
-/* .year_head{
-    font-family: "EAZZY";
-    color: black;
-    font-size: 40px;
-     */
-}
+
 .result_cart{
     font-family: "EAZZY";
     color: rgb(94, 4, 97);
@@ -253,19 +243,31 @@
 }
 .year_text{
     /*Стилизация текста описания карточки*/
+    font-size: 20px;
 
 }
 .back_1{
     background: url("/static/deps/images/about/back_1.jpeg") no-repeat center center/cover;
     font-family: "EAZZY";
     color: black;
-    font-size: 40px;
+   
 
 }
 .back_2{
-    background: url("/static/deps/images/about/qucly_grow_up.jpeg") no-repeat center center/cover;
-    color:azure;
-    font-size: 20px;
+    background: url("/static/deps/images/about/quckly_grow_up.jpg") no-repeat center center/cover;
+    color:rgb(219, 182, 15);
+    font-family: "EAZZY";
+   
+}
+.back_3{
+    background: url("/static/deps/images/about/back_3.jpg") no-repeat center center/cover;
+    color:rgb(141, 23, 152);
+    font-family: "EAZZY";
+}
+.back_4{
+    background: url("/static/deps/images/about/new.jpg") no-repeat center center/cover;
+    color:rgb(0, 0, 0);
+    font-family: "EAZZY";
 }
 @font-face {
     font-family: "EAZZY";
