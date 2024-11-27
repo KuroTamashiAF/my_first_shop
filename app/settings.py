@@ -34,7 +34,7 @@ SESSION_COOKIE_SECURE = True
 CSRF_COOKIE_SECURE = True
 
 ALLOWED_HOSTS = [
-    # "127.0.0.1",
+    "127.0.0.1",
     # "192.168.25.69",
     # "192.168.224.72",
     "NvrSuRRner.pythonanywhere.com",
@@ -95,14 +95,6 @@ WSGI_APPLICATION = "app.wsgi.application"
 # https://docs.djangoproject.com/en/5.0/ref/settings/#databases
 
 DATABASES = {
-    # "default": {
-    #     "ENGINE": "django.db.backends.postgresql",
-    #     "NAME": "home",
-    #     "USER": "home",
-    #     "PASSWORD": "home",
-    #     "HOST": "localhost",
-    #     "PORT": "5432",
-    # }
     "default": {
         "ENGINE": "django.db.backends.mysql",
         "NAME": "NvrSuRRner$default",
@@ -152,11 +144,11 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/5.0/howto/static-files/
 
 STATIC_URL = "static/"
-STATIC_ROOT = BASE_DIR / "static/deps/"
-
+if not DEBUG:
+    STATIC_ROOT = ""
 STATICFILES_DIRS = [
-    BASE_DIR / "static",
-]
+    os.path.join(BASE_DIR, "static/"),
+    ]
 
 MEDIA_URL = "media/"
 
